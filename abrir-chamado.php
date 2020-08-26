@@ -1,3 +1,6 @@
+<?php 
+  require_once('sessao_validador.php');
+  ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,16 +15,13 @@
     <link rel="stylesheet" href="css/estilo.css" />
     <link rel="stylesheet" href="css/bootstrap.min.css" />
 
-    <title>APP HELP DESK</title>
+    <title>App Help Desk</title>
   </head>
   <body class="bg-success">
-    <!--AREA DE NAVEGAÇÃO-->
-    <nav class="navbar navbar-expand-lg bg-dark text-white">
-      <a href="index.html" class="navbar-brand"
-        ><img src="imagens/logo.png" alt="" class="img-fluid" width="50px" />
-        <span class="text-white">APP HELP DESK</span></a
-      >
-    </nav>
+   <!--AREA DE NAVEGAÇÃO-->
+   <?php require_once 'menu.php' ?>
+    <!--FECHAMENTO ÁREA DE NAVEGAÇÃO-->
+ 
     <div class="row mt-5">
       <div class="col-md-10 m-auto">
         <div class="card">
@@ -33,7 +33,7 @@
             </div>
           </div>
           <div class="card-body bg-dark">
-            <form action="">
+            <form action="registra_chamado.php" method="post">
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
@@ -79,16 +79,17 @@
               </div>
               <div class="row">
                 <div class="col-md-6">
-                  <button
-                    type="submit"
+                  <a
+                    href="home.php"
                     class="form-control btn-dark text-white"
                   >
                     Voltar
-                  </button>
+                  </a>
                 </div>
                 <div class="col-md-6">
                   <button
                     type="submit"
+                    href="consulta-chamado.php"
                     class="form-control btn btn-dark text-white"
                   >
                     Abrir
@@ -101,11 +102,7 @@
       </div>
     </div>
 
-    <div class="direitos pt-3 bg-dark text-white">
-      Developed by
-      <a href="https://github.com/marcovski" target="_blank">Marcovski</a> and
-      <a href="https://github.com/skyd3ath" target="_blank">hsing</a>
-    </div>
+    <?php require_once 'rodape.php' ?>
     <script src="js/bootstrap.min.js"></script>
   </body>
 </html>

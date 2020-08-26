@@ -1,3 +1,6 @@
+<?php 
+  require_once('sessao_validador.php');//require -> fatal error caso esteja errado
+  ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -16,12 +19,7 @@
   </head>
   <body class="bg-success">
     <!--AREA DE NAVEGAÇÃO-->
-    <nav class="navbar navbar-expand-lg bg-dark text-white">
-      <a href="index.html" class="navbar-brand"
-        ><img src="imagens/logo.png" alt="" class="img-fluid" width="50px" />
-        <span class="text-white">APP HELP DESK</span></a
-      >
-    </nav>
+    <?php require_once 'menu.php' ?>
     <!--FECHAMENTO ÁREA DE NAVEGAÇÃO-->
 
     <!--ROW[0]-->
@@ -44,11 +42,11 @@
                 <div class="row">
                   <!--ABRIR CHAMADO-->
                   <div class="col-md-6 text-center">
-                    <img
+                    <a href="abrir-chamado.php"><img
                       src="imagens/formulario_abrir_chamado.png"
                       alt=""
                       width="100px"
-                    />
+                    /></a>
                     <br />
                     <br />
                     <span class="text-white">ABRIR CHAMADO</span>
@@ -56,11 +54,11 @@
                   <!--FIM DO ABRIR CHAMADO-->
                   <!--CONSULTAR CHAMADO-->
                   <div class="col-md-6 text-center">
-                    <img
+                    <a href="consulta-chamado.php"><img
                       src="imagens/formulario_consultar_chamado.png"
                       alt=""
                       width="100px"
-                    />
+                    /></a>
                     <br />
                     <br />
                     <span class="text-white">CONSULTAR CHAMADO</span>
@@ -80,11 +78,7 @@
     </div>
     <!--FIM DA ROW[0]-->
 
-    <div class="direitos pt-3 bg-dark text-white">
-      Developed by
-      <a href="https://github.com/marcovski" target="_blank">Marcovski</a> and
-      <a href="https://github.com/skyd3ath" target="_blank">hsing</a>
-    </div>
+    <?php require_once 'rodape.php' ?>
     <script src="js/bootstrap.min.js"></script>
   </body>
 </html>
