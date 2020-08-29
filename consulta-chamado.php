@@ -10,7 +10,7 @@ function dd($param)
 $chamados = [];
 
 //abrir arquivo para leitura
-$file = 'chamados/arquivo.txt';
+$file = '../../app-help-desk/chamados/arquivo.txt';
 $arquivos = fopen($file, 'r');
 
 // enquanto houver registros(linhas) a serem recuperadas
@@ -48,20 +48,26 @@ fclose($arquivos);
                 <? foreach($chamados as $item){
                   ?>
                 <? $chamado = explode('#',$item); 
-                     if(count($chamado) < 3){
+                    if($_SESSION['perfil_id'] === 2 ){
+                        // só vamos exibir o chamado se ele tiver sido criado pelo usuário
+                        if($_SESSION['id'] != $chamado[0]){
+                            continue;
+                        }
+                    }
+                     if(count($chamado) < 4 ){
                        continue;
                      }
                   ?>
                 <div class="card-body mt-2 bg-white">
                     <div class="card bg-success text-white">
                         <div class="card-header">
-                            <span class="h5"><?= $chamado[0] ?></span>
+                            <span class="h5"><?= $chamado[1] ?></span>
                         </div>
                         <div class="card-body">
                             <blockquote class="blockquote-footer text-white">
-                                <?= $chamado[1] ?>
+                                <?= $chamado[2] ?>
                             </blockquote>
-                            <span> <?= $chamado[2] ?> </span>
+                            <span> <?= $chamado[3] ?> </span>
                         </div>
                     </div>
                 </div>
